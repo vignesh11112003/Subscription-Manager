@@ -1,0 +1,126 @@
+
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(20, 30, 23, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.confirm-modal {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  animation: confirmAppear 0.2s ease-out;
+}
+
+.confirm-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.confirm-close:hover {
+  background: var(--background);
+}
+
+.confirm-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  color: var(--danger);
+  background: #fff0f0;
+  border-radius: 50%;
+}
+
+.confirm-modal h2 {
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  font-size: 22px;
+}
+
+.confirm-modal p {
+  margin-bottom: 26px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.confirm-modal p strong {
+  color: var(--text-primary);
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.confirm-actions button {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.confirm-cancel {
+  color: var(--text-primary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.confirm-cancel:hover {
+  background: var(--background);
+}
+
+.confirm-delete {
+  color: #fff;
+  background: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.confirm-delete:hover {
+  background: #bd3636;
+}
+
+@keyframes confirmAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .confirm-modal {
+    padding: 28px 20px;
+  }
+}

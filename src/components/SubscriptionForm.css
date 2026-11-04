@@ -1,0 +1,227 @@
+/* SubscriptionForm.css */
+
+.subscription-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  background: rgba(24, 35, 27, 0.48);
+  backdrop-filter: blur(4px);
+
+  overflow-y: auto;
+}
+
+.subscription-modal {
+  width: 100%;
+  max-width: 620px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.15);
+
+  animation: modal-enter 0.2s ease-out;
+}
+
+@keyframes modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.subscription-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding-bottom: 23px;
+  border-bottom: 1px solid var(--border);
+}
+
+.subscription-modal-header h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.subscription-modal-header p {
+  margin-top: 7px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.form-close-button {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--text-secondary);
+}
+
+.form-close-button:hover {
+  color: var(--danger);
+  background: #fff0f0;
+}
+
+.subscription-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 23px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.form-group {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 13px;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #ffffff;
+  color: var(--text-primary);
+
+  font-size: 13px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input,
+.form-group select {
+  min-height: 44px;
+}
+
+.form-group textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #a0aaa1;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(40, 122, 85, 0.1);
+}
+
+.form-error {
+  color: var(--danger);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.subscription-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+
+  padding-top: 20px;
+  margin-top: 4px;
+  border-top: 1px solid var(--border);
+}
+
+.form-cancel-button,
+.form-submit-button {
+  min-height: 43px;
+  padding: 11px 18px;
+
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+
+  transition: background 0.2s ease;
+}
+
+.form-cancel-button {
+  border: 1px solid var(--border);
+  background: #ffffff;
+  color: var(--text-primary);
+}
+
+.form-cancel-button:hover {
+  background: #f4f6f3;
+}
+
+.form-submit-button {
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.form-submit-button:hover {
+  background: var(--primary-dark);
+}
+
+@media (max-width: 520px) {
+  .subscription-modal-overlay {
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .subscription-modal {
+    max-height: calc(100vh - 20px);
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .subscription-modal-header h2 {
+    font-size: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .subscription-form-actions > button {
+    flex: 1;
+  }
+}

@@ -1,0 +1,32 @@
+
+.signup-card {
+  max-width: 460px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.signup-card .auth-brand {
+  margin-bottom: 26px;
+}
+
+.signup-card .auth-heading {
+  margin-bottom: 24px;
+}
+
+.signup-card .auth-form {
+  gap: 16px;
+}
+
+.signup-card .auth-field input {
+  box-sizing: border-box;
+}
+
+.signup-card .auth-switch {
+  margin-top: 22px;
+}
+
+@media (max-width: 480px) {
+  .signup-card {
+    padding: 26px 22px;
+  }
+}
